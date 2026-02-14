@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  // ✅ Import Router
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Courses from './components/Courses';
@@ -6,6 +7,15 @@ import LiveClasses from './components/LiveClasses';
 import Toppers from './components/Toppers';
 import StudyMaterial from './components/StudyMaterial';
 import Footer from './components/Footer';
+
+// Import new pages
+import LiveClassesPage from './pages/LiveClassesPage';
+import CoursesPage from './pages/CoursesPage';
+import TestSeriesPage from './pages/TestSeriesPage';
+import StudyMaterialPage from './pages/StudyMaterialPage';
+import ResultsPage from './pages/ResultsPage';
+import AboutPage from './pages/AboutPage';
+
 import './App.css';
 
 function App() {
@@ -206,17 +216,46 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <Header />
-      <main>
-        <HeroSection />
-        <Courses courses={courses} />
-        <LiveClasses liveClasses={liveClasses} />
-        <Toppers toppers={toppers} />
-        <StudyMaterial />
-      </main>
-      <Footer />
-    </div>
+    <Router>  {/* ✅ Wrap everything in Router */}
+      <div className="app">
+        <Header 
+          courses={courses}
+          liveClasses={liveClasses}
+          toppers={toppers}
+        />
+        
+        <Routes>  {/* ✅ Define all routes */}
+          {/* Home Route - contains all components */}
+          <Route path="/" element={
+            <main>
+              <HeroSection />
+              <Courses courses={courses} />
+              <LiveClasses liveClasses={liveClasses} />
+              <Toppers toppers={toppers} />
+              <StudyMaterial />
+            </main>
+          } />
+          
+          {/* Individual Page Routes */}
+          <Route path="/live-classes" element={<LiveClassesPage />} />
+          <Route path="/courses" element={<CoursesPage />} />
+          <Route path="/test-series" element={<TestSeriesPage />} />
+          <Route path="/study-material" element={<StudyMaterialPage />} />
+          <Route path="/results" element={<ResultsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          
+          {/* Course category routes (for dropdown) */}
+          <Route path="/courses/engineering" element={<CoursesPage />} />
+          <Route path="/courses/medical" element={<CoursesPage />} />
+          <Route path="/courses/upsc" element={<CoursesPage />} />
+          <Route path="/courses/banking" element={<CoursesPage />} />
+          <Route path="/courses/ssc" element={<CoursesPage />} />
+          <Route path="/courses/gate" element={<CoursesPage />} />
+        </Routes>
+        
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

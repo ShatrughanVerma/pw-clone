@@ -1,0 +1,255 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-main {
+  flex: 1;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 48px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.page-subtitle {
+  font-size: 20px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Coming Soon Card */
+.coming-soon {
+  background: white;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+  animation: slideUp 0.5s ease;
+}
+
+.coming-soon span {
+  font-size: 60px;
+  display: block;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+.coming-soon h2 {
+  font-size: 36px;
+  color: #1f2937;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.coming-soon p {
+  color: #6b7280;
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.features-preview {
+  background: #f3f4f6;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: left;
+}
+
+.features-preview h3 {
+  color: #1f2937;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.features-preview ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-preview li {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.features-preview li:last-child {
+  border-bottom: none;
+}
+
+.features-preview li:hover {
+  color: #4f46e5;
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+/* About Page Specific */
+.about-content {
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 40px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.about-card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.about-card p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.9);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.2);
+}
+
+.stat-number {
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+}
+
+.mission-card {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.mission-card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.mission-card p {
+  font-size: 24px;
+  font-style: italic;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 36px;
+  }
+  
+  .page-subtitle {
+    font-size: 18px;
+  }
+  
+  .coming-soon {
+    padding: 30px 20px;
+  }
+  
+  .coming-soon h2 {
+    font-size: 28px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .mission-card p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 28px;
+  }
+  
+  .coming-soon span {
+    font-size: 48px;
+  }
+  
+  .coming-soon h2 {
+    font-size: 24px;
+  }
+}
